@@ -1,0 +1,176 @@
+/*
+ * Tokens de design – EcoPonto Boa Vista
+ * Identidade visual da Prefeitura de Boa Vista (aprovada).
+ * Origem: Minha carteirinha e Meus Pontos. Mesmos valores, mais os tokens dos
+ * selos de vale (disponível, retirado, cancelado/vencido).
+ *
+ * Este é o ÚNICO arquivo com cores em hex.
+ * Os componentes usam somente var(--token).
+ */
+
+:root {
+  /* ---- Marca (identidade aprovada) ---- */
+  --brand: #025790;          /* Azul Boa Vista, cor principal */
+  --brand-on: #FFFFFF;       /* texto sobre a cor principal (7,6:1) */
+  --accent-green: #1E7B34;   /* Verde Reciclagem (branco por cima: 5,3:1) */
+  --accent-blue: #0A6E9E;    /* Azul Claro (branco por cima: 5,6:1) */
+  --highlight: #ECD513;      /* Amarelo, só para destaque */
+  --highlight-on: #025790;   /* texto sobre o amarelo (5,1:1). Nunca branco. */
+
+  /* ---- Faixa decorativa do brasão (nunca com texto em cima) ---- */
+  --stripe-yellow: #ECD513;
+  --stripe-green: #04C417;
+  --stripe-blue: #0B84BB;
+  --stripe-white: #FFFFFF;
+
+  /* ---- Selos de status do vale (texto branco por cima, AA nos dois temas) ---- */
+  --status-disponivel: var(--accent-green);  /* 5,3:1 */
+  --status-retirado: var(--accent-blue);     /* 5,6:1 */
+  --status-encerrado: #5B6670;               /* cinza neutro: cancelado e vencido, 5,9:1 */
+  --status-on: #FFFFFF;
+
+  /* ---- QR: sempre preto sobre branco, em qualquer tema ---- */
+  --qr-fg: #000000;
+  --qr-bg: #FFFFFF;
+
+  /* ---- Tipografia e medidas ---- */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-size-body: 1rem;      /* 16 px, mínimo do corpo */
+  --font-size-small: 1rem;     /* não descemos abaixo de 16 px */
+  --font-size-title: 1.375rem;
+  --font-size-name: 1.5rem;
+  --font-size-display: 2.25rem;
+  --font-size-codigo: 1.75rem; /* código do vale, para o atendente digitar */
+  --line-height: 1.5;
+
+  --touch-min: 44px;           /* área de toque mínima */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --stripe-height: 8px;
+  --focus-width: 3px;
+  --icon-stroke: 2;            /* Lucide, traço de 2 px */
+  --progress-height: 8px;
+  --foto-proporcao: 4 / 3;     /* proporção fixa das fotos dos prêmios */
+
+  /* ---- Tema claro (padrão) ---- */
+  color-scheme: light;
+  --page-bg: #F2F5F8;
+  --surface: #FFFFFF;
+  --surface-border: #D5DDE5;
+  --surface-muted: #E8EDF2;    /* fundo da foto enquanto carrega */
+  --text: #13212E;
+  --text-muted: #4A5B6B;
+  --text-link: var(--brand);
+  --brand-text: var(--brand);  /* custo e saldo (7,6:1 no branco) */
+  --focus-ring: var(--brand);
+  --focus-ring-on-brand: var(--highlight);
+  --shadow: 0 1px 3px rgb(19 33 46 / 0.12), 0 4px 16px rgb(19 33 46 / 0.06);
+  --scrim: rgb(19 33 46 / 0.55);
+
+  /* Estados: sempre acompanhados de ícone e texto, nunca só cor. */
+  --warning-bg: #FFF4C2;
+  --warning-border: #8A6D00;
+  --warning-text: #4D3B00;     /* 10,1:1 no fundo de aviso */
+  --danger-bg: #FDECEC;
+  --danger-border: #B42318;
+  --danger-text: #8A1C12;      /* 7,9:1 */
+  --success-bg: #E5F3E8;
+  --success-text: #155E27;     /* 7,0:1 */
+  --info-bg: #E6F1F8;
+  --info-text: #024A7A;        /* 8,1:1 */
+  --bloqueio-text: #4A5B6B;    /* motivo de bloqueio no card (7,0:1) */
+
+  --progress-track: #D5DDE5;
+  --progress-fill: var(--brand);
+
+  --disabled-bg: #D5DDE5;
+  --disabled-text: #4A5B6B;    /* 5,3:1 */
+
+  --skeleton: #E1E7ED;
+  --skeleton-shine: #EEF2F6;
+}
+
+/* Tema escuro pelo sistema, se a pessoa não escolheu o claro */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page-bg: #0C1620;
+    --surface: #15222F;
+    --surface-border: #2A3A4A;
+    --surface-muted: #1F2F3F;
+    --text: #E8EEF3;
+    --text-muted: #A9B8C6;
+    --text-link: #8CCBF2;
+    --brand-text: #8CCBF2;     /* o azul da marca não tem contraste no fundo escuro */
+    --focus-ring: var(--highlight);
+    --shadow: 0 1px 3px rgb(0 0 0 / 0.4);
+    --scrim: rgb(0 0 0 / 0.7);
+
+    --warning-bg: #3A3100;
+    --warning-border: #ECD513;
+    --warning-text: #FFE987;
+    --danger-bg: #3D1512;
+    --danger-border: #F2877D;
+    --danger-text: #FFC4BE;
+    --success-bg: #12341E;
+    --success-text: #93E2A8;
+    --info-bg: #0F2C42;
+    --info-text: #A8D8F5;
+    --bloqueio-text: #C3CFDA;
+
+    --progress-track: #2A3A4A;
+    --progress-fill: #5DB3E6;
+
+    --disabled-bg: #2A3A4A;
+    --disabled-text: #A9B8C6;
+
+    --skeleton: #1F2F3F;
+    --skeleton-shine: #2A3D50;
+  }
+}
+
+/* Tema escuro escolhido manualmente */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #0C1620;
+  --surface: #15222F;
+  --surface-border: #2A3A4A;
+  --surface-muted: #1F2F3F;
+  --text: #E8EEF3;
+  --text-muted: #A9B8C6;
+  --text-link: #8CCBF2;
+  --brand-text: #8CCBF2;
+  --focus-ring: var(--highlight);
+  --shadow: 0 1px 3px rgb(0 0 0 / 0.4);
+  --scrim: rgb(0 0 0 / 0.7);
+
+  --warning-bg: #3A3100;
+  --warning-border: #ECD513;
+  --warning-text: #FFE987;
+  --danger-bg: #3D1512;
+  --danger-border: #F2877D;
+  --danger-text: #FFC4BE;
+  --success-bg: #12341E;
+  --success-text: #93E2A8;
+  --info-bg: #0F2C42;
+  --info-text: #A8D8F5;
+  --bloqueio-text: #C3CFDA;
+
+  --progress-track: #2A3A4A;
+  --progress-fill: #5DB3E6;
+
+  --disabled-bg: #2A3A4A;
+  --disabled-text: #A9B8C6;
+
+  --skeleton: #1F2F3F;
+  --skeleton-shine: #2A3D50;
+}

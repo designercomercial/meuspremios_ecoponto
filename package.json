@@ -1,0 +1,22 @@
+{
+  "name": "ecoponto-premios",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.18.0",
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "start": "pnpm --filter @ecoponto/api start",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:e2e": "pnpm --filter @ecoponto/web test:e2e",
+    "vercel-build": "node scripts/vercel-build.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "esbuild": "0.28.2",
+    "turbo": "^2.11.11",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}

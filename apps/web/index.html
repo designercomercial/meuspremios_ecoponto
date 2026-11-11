@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prêmios – EcoPonto</title>
+  <meta name="description" content="Troque seus pontos do EcoPonto da Prefeitura de Boa Vista por prêmios.">
+  <meta name="theme-color" content="#025790">
+  <script>
+    // Aplica o tema salvo antes de pintar a página, para não piscar.
+    try {
+      var t = localStorage.getItem("tema");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <span class="site-header__logo" aria-hidden="true">
+        <!-- Lucide: gift -->
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M12 7v14"/>
+          <path d="M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/>
+          <path d="M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5"/>
+          <rect x="3" y="7" width="18" height="4" rx="1"/>
+        </svg>
+      </span>
+      <div class="site-header__titles">
+        <h1 class="site-header__title">Prêmios</h1>
+        <p class="site-header__subtitle">EcoPonto · Prefeitura de Boa Vista</p>
+      </div>
+      <button type="button" class="icon-button" id="theme-toggle" aria-label="Usar tema escuro">
+        <!-- Lucide: moon -->
+        <svg class="icon" data-icon="moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+        </svg>
+        <!-- Lucide: sun -->
+        <svg class="icon" data-icon="sun" viewBox="0 0 24 24" aria-hidden="true" hidden>
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2"/><path d="M12 20v2"/>
+          <path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/>
+          <path d="M2 12h2"/><path d="M20 12h2"/>
+          <path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+        </svg>
+      </button>
+    </div>
+    <div class="brand-stripe" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  </header>
+
+  <div id="app"></div>
+
+  <noscript><p class="noscript">Para ver os prêmios, ative o JavaScript.</p></noscript>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

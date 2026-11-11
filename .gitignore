@@ -1,0 +1,15 @@
+node_modules
+dist
+.turbo
+coverage
+test-results
+playwright-report
+*.log
+.env
+
+.vercel
+.env*
+
+# Banco local (embedded-postgres)
+.pgdata
+.pgtest

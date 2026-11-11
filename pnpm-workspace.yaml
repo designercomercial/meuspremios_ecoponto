@@ -1,0 +1,23 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+# esbuild (usado por tsx e Vite) precisa do script de instalação.
+allowBuilds:
+  esbuild: true
+  # PostgreSQL embutido para os testes de concorrência (binário do servidor).
+  "@embedded-postgres/windows-x64": true
+  "@embedded-postgres/linux-x64": true
+  "@embedded-postgres/darwin-arm64": true
+  "@embedded-postgres/darwin-x64": true
+
+minimumReleaseAgeExclude:
+  - "@turbo/darwin-64@2.11.11"
+  - "@turbo/darwin-arm64@2.11.11"
+  - "@turbo/linux-64@2.11.11"
+  - "@turbo/linux-arm64@2.11.11"
+  - "@turbo/windows-64@2.11.11"
+  - "@turbo/windows-arm64@2.11.11"
+  - turbo@2.11.11
+  - lucide@1.72.0
+  - vite@8.3.8
